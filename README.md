@@ -50,6 +50,7 @@ activate venv : source ~/my_app/env/bin/activate
 (env) - pip3 install pandas
       - pip3 install boto3
       - pip3 install requests
+      - pip3 install beautifulsoup4
 ```
 9a. (optional) Test scraper.py. Always check if connected to s3 bucket, otherwise data will not be stored.
 ```bash
