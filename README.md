@@ -71,7 +71,8 @@ Great! You created a scheduled Amazon stock price scraper!
 
 12. If successful you will get images similar to this:
 
-![Image](Actual stock prices.png)
-![Image](Prediction result.png)
+![Alt](Actual stock prices.png) <br>
+
+![Alt](Prediction result.png)
 
 
