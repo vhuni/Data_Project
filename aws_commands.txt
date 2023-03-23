@@ -1,0 +1,28 @@
+AWS
+------------------------
+# Connect to ubuntu EC2 instance 
+ssh -i "new_ssh.pem" ubuntu@ec2-3-135-190-123.us-east-2.compute.amazonaws.com
+
+# Copying scraper.py to ubuntu EC2 instance
+scp -i "new_ssh.pem" "scraper.py" ubuntu@ec2-3-135-190-123.us-east-2.compute.amazonaws.com:/home/ubuntu/
+
+
+ENV
+--------------------------
+create venv: python3 -m venv my_app/env
+activate venv : source ~/my_app/env/bin/activate
+
+
+CRONTAB
+--------------------------
+MAILTO="" ---> insert at begining of crontab
+/home/ubuntu/my_app/env/bin/python /home/ubuntu/scraper.py 2>&1 | logger -t mycmd  ----> insert at last line of crontab / runs env python
+#########################
+grep 'mycmd' /var/log/syslog ---> shows output text of crontab
+sudo systemctl status cron  ----> shows crontab status
+
+
+*****************************
+packages di: /usr/lib/python3/dist-packages
+python dir: /usr/bin/python3.10   ---> run 'python3.10 scraper.py' to avoid boto3 error. boto3 installs on python3.10 instead of python3
+					    ---> or create env and install boto3 into env

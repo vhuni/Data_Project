@@ -1,3 +1,8 @@
-scikit-learn==
+scikit-learn ==
 tensorflow
+pandas
+boto3
+matplotlib
+plotly
+requests
 
