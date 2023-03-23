@@ -69,10 +69,9 @@ Great! You created a scheduled Amazon stock price scraper!
 
 11. (Return to jupyter notebook) Run all cells in stock_prediction.ipynb
 
-12. If successful you will get images similar to this:
+12. If successful you will get images similar to this in your jupyter notebook:
 
-![Alt](Actual stock prices.png) <br>
+![Actual stock prices](https://user-images.githubusercontent.com/43030048/227242038-caf9229b-c6f5-4349-ab71-e339adb2bbcd.png) <br>
 
-![Alt](Prediction result.png)
-
+![Prediction result](https://user-images.githubusercontent.com/43030048/227242153-fe69f821-fcfb-467f-8af0-ded435bbb299.png)
 
