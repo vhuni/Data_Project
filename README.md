@@ -17,7 +17,7 @@ Clone or fork this repository.
 ```bash
 docker pull tensorflow/tensorflow:latest-jupyter
 ```
-2. Create container from tensorflow image.
+2. (Open any terminal) Create container from tensorflow image.
 ```bash
 docker run -it --name tf tensorflow/tensorflow:latest-jupyter bash
 ```
