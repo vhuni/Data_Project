@@ -26,3 +26,41 @@ sudo systemctl status cron  ----> shows crontab status
 packages di: /usr/lib/python3/dist-packages
 python dir: /usr/bin/python3.10   ---> run 'python3.10 scraper.py' to avoid boto3 error. boto3 installs on python3.10 instead of python3
 					    ---> or create env and install boto3 into env
+
+*****************************
+gunicorn service:
+sudo nano /etc/systemd/system/flasktest.service
+--------
+[Unit]
+Description=Gunicorn instance for a simple hello world app
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/
+ExecStart=/home/ubuntu/my_app/env/bin/gunicorn -b localhost:5000 app:app
+Restart=always
+[Install]
+WantedBy=multi-user.target
+--------
+
+sudo systemctl daemon-reload
+sudo systemctl start flasktest.service
+sudo systemctl enable flasktest.service
+
+***************************
+nginx:
+sudo systemctl start nginx
+sudo systemctl enable nginx
+--------
+sudo nano /etc/nginx/sites-available/default
+--------
+upstream flaskhelloworld {
+    server 127.0.0.1:8000;
+}
+-------
+location / {
+    proxy_pass http://flaskhelloworld;  -----> add only this line, delete previous existing line of code
+}
+
+sudo systemctl restart nginx
